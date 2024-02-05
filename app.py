@@ -12,8 +12,8 @@ model_detect_path = "model/detect/best.pt"
 model_detect = YOLO(model_detect_path)
 
 # model_segment_path = "model/segment/best.pt"
-model_segment_path = "new_model/best.pt"
-model_segment = YOLO(model_segment_path)
+# model_segment_path = "new_model/best.pt"
+# model_segment = YOLO(model_segment_path)
 
 # Apply Flask CORS
 CORS(app)
@@ -28,11 +28,6 @@ def create_upload_folder():
 def predict_image(img_path):
     frame = cv2.imread(img_path)
     results = model_detect(frame, save=False, imgsz=320, conf=0.5)
-    return results, len(results[0].boxes)
-
-def segment_image(img_path):
-    frame = cv2.imread(img_path)
-    results = model_segment(frame, save=False, imgsz=320)
     return results, len(results[0].boxes)
 
 @app.route('/', methods=['GET', 'POST'])
