@@ -24,3 +24,8 @@ pip install -r requirements.txt
 ```bash
 python app.py
 ```
+
+## Note: Nếu bị lỗi hiển thị có thể dùng lệch sau để khắc phục
+```bash
+sudo apt install libgl1-mesa-glx
+```
